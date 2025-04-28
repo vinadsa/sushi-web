@@ -7,11 +7,10 @@ Aos.init({
     offset: 100,
 });
 
-
-const buttons = document.querySelectorAll('.popular-foods__filters-btn')
-buttons.forEach(button => {
+const filter_buttons = document.querySelectorAll('.popular-foods__filters-btn')
+filter_buttons.forEach(button => {
     button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('active'));
+        filter_buttons.forEach(btn => btn.classList.remove('active'));
         
         button.classList.add('active');
     });

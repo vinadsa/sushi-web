@@ -44,6 +44,7 @@
     font-family: var(--plus-jakarta-sans);
     color: #fff;
     cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .popular-foods__filters-btn img {
@@ -55,13 +56,13 @@
 .popular-foods__filters-btn.active {
     background: #fff;
     color: var(--primary-color);
-    transition: transform 0.6s ease, background 0.6s ease, color 0.6s ease;
+    transform: scale(1.1);
 }
 
 .popular-foods__filters-btn:hover {
     background: #fff;
     color: var(--primary-color);
-    transform: scale(1.1); /* make it grow 5% */
+    transform: scale(1.1);
 }
 
 .popular-foods__catalogue {
