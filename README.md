@@ -123,22 +123,22 @@ classDiagram
     }
 
     %% Relationships
-    AdminKeuangan ||--o{ ResetPasswordController : requests
-    ResetPasswordController ||--|| UserRepository : uses
-    ResetPasswordController ||--|| VerificationCodeService : uses
-    ResetPasswordController ||--|| EmailService : uses
-    ResetPasswordController ||--|| PasswordService : uses
+    AdminKeuangan --> ResetPasswordController : requests
+    ResetPasswordController ..> UserRepository : uses
+    ResetPasswordController ..> VerificationCodeService : uses
+    ResetPasswordController ..> EmailService : uses
+    ResetPasswordController ..> PasswordService : uses
     
-    UserRepository ||--|| Database : connects to
-    UserRepository ||--o{ User : manages
+    UserRepository ..> Database : connects to  %% Menggunakan dependensi karena Database adalah interface
+    UserRepository o-- "*" User : manages     %% UserRepository mengelola banyak instance User (agregasi)
     
-    VerificationCodeService ||--o{ VerificationCode : creates
+    VerificationCodeService o-- "*" VerificationCode : creates %% VerificationCodeService membuat/mengelola banyak VerificationCode (agregasi)
     
-    EmailService ||--|| EmailTemplate : uses
-    EmailService ||--|| LogService : uses
+    EmailService ..> EmailTemplate : uses
+    EmailService ..> LogService : uses
     
-    PasswordService ||--|| EncryptionService : uses
-    PasswordService ||--|| PasswordValidator : uses
+    PasswordService ..> EncryptionService : uses
+    PasswordService ..> PasswordValidator : uses
 
     %% Notes
     note for AdminKeuangan "Actor yang melakukan\nreset password"
